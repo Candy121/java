@@ -1,0 +1,70 @@
+两数之和
+class Solution {
+    public static int[] twoSum(int[] nums, int target) {
+    int[] re=new int[] {0,0};
+        for(int i=0;i<nums.length-1;i++) { 
+			for(int j=i+1;j<nums.length;j++) {
+				if(nums[i]+nums[j]==target){ re[0]=i;re[1]=j;} }}
+                return re;
+     } public static void main(String[] args){
+     int[] re=twoSum(new int[] {2,7,11,15},9);
+     System.out.print("["+re[0]+","+re[1]+"]");}}
+
+
+
+回文数
+class Solution {
+    public boolean isPalindrome(int x) {
+   
+   boolean a;int b=x,c,t=0;
+   while(b!=0){
+       c=b%10;
+       t=t*10+c;
+       b=b/10;
+   }
+   if(x<0)a=false;
+    else if(x!=t) a=false;
+    else a=true;
+      return a;
+    }
+}
+
+
+罗马数转整数
+class Solution {
+    public int romanToInt(String s) {
+        int a=0;
+        int b=0;
+        int[] n=new int[s.length()];
+        for(int i=0;i<s.length();i++){
+            switch(s.charAt(i)){
+                case 'I':b=1;break;
+                case 'V':b=5;break;
+                case 'X':b=10;break;
+                case 'L':b=50;break;
+                case 'C':b=100;break;
+                case'D':b=500;break;
+                case'M':b=1000;break;
+            }
+            n[i]=b;
+        }
+  for(int i=0;i<n.length;i++){
+      if(i<n.length-1&&n[i+1]>n[i])n[i]=-n[i];a+=n[i];
+  }
+   return a;
+    }
+}
+
+
+
+
+最后一个单词的长度
+class Solution {
+    public int lengthOfLastWord(String s) {
+    int a=0;
+    for (int i=s.length()-1;i>=0;i--)
+    {
+        if(s.charAt(i)!=' ')a++;else if (a!=0) break;
+    } return a;
+    }
+}
